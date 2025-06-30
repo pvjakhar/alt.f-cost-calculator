@@ -98,7 +98,7 @@ const AltfCostCalculator = () => {
         }
     };
 
-    const phoneNumber = "919999017637"; // Replace with the actual phone number
+    const phoneNumber = "919958500568"; // Replace with the actual phone number
     const chatSalesMessage = "Hi, I'd like to chat with a sales executive.";
 
     return (
