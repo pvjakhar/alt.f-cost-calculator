@@ -63,13 +63,13 @@ body {
 
 /* Alt.f Logo Styles */
 .altf-logo {
-  max-width: 150px; /* Adjusted size */
+  max-width: 165px; /* Adjusted size */
   height: auto;
   margin-bottom: 1.5rem; /* Space between logo and title */
   display: block; /* Ensures it takes its own line */
   margin-left: auto; /* Centers the logo horizontally */
   margin-right: auto; /* Centers the logo horizontally */
-  width: 100px;
+  width: 116px;
   height: 58px;
 
 }
@@ -256,6 +256,10 @@ body {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1),
               0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* --- Changes Start Here --- */
+  border: none; /* Removes the border */
+  outline: none; /* Removes the outline that appears on focus (e.g., when clicked) */
+  /* --- Changes End Here --- */
 }
 
 .altf-calculate-button:hover {
@@ -599,4 +603,66 @@ body {
 @keyframes slideIn {
   from { transform: translateY(-50px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
+}
+/* Add these styles to your cc.css file */
+
+/* ... (other existing styles) ... */
+
+.altf-action-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    gap: 15px; /* Space between buttons */
+    margin-top: 30px;
+    width: 100%; /* Make buttons take full width of container */
+    max-width: 350px; /* Limit max width for better appearance */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.altf-action-button {
+    display: flex; /* Use flex to align icon and text */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: center; /* Center content horizontally */
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none; /* Remove underline from links */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff; /* Ensure text color is white for contrast */
+    border: none; /* Remove default button border */
+}
+
+.altf-book-tour-button {
+    background-color: #007bff; /* A nice blue color for the tour button */
+}
+
+.altf-book-tour-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* The background-color: #e15252 is applied directly as an inline style in the JSX for .altf-chat-sales-button.
+   You can add hover effects for .altf-chat-sales-button below if needed. */
+
+.altf-chat-sales-button:hover {
+    background-color: #e15252 !important; /* A darker shade for hover, using !important to override inline style */
+    transform: translateY(-2px);
+}
+
+/* Style for the WhatsApp icon within the button */
+.whatsapp-icon {
+    font-size: 1.5em; /* Adjust icon size as needed */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Media query for larger screens to place buttons side-by-side */
+@media (min-width: 768px) {
+    .altf-action-buttons {
+        flex-direction: row; /* Arrange buttons horizontally on larger screens */
+        justify-content: center;
+        max-width: none; /* Remove max-width constraint for row layout */
+    }
 }
