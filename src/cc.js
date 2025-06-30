@@ -1,5 +1,6 @@
-import React, { useState } from 'react'; 
-import './cc.css'; // Import the CSS file 
+import React, { useState } from 'react';
+import './cc.css'; // Import the CSS file
+import { PiWhatsappLogoThin } from "react-icons/pi"; // Import the specific WhatsApp icon
 
 const AltfCostCalculator = () => {
     const [formData, setFormData] = useState({
@@ -97,6 +98,9 @@ const AltfCostCalculator = () => {
         }
     };
 
+    const phoneNumber = "919999017637"; // Replace with the actual phone number
+    const chatSalesMessage = "Hi, I'd like to chat with a sales executive.";
+
     return (
         <div className="altf-calculator-container">
             <div className="altf-calculator-wrapper">
@@ -156,7 +160,7 @@ const AltfCostCalculator = () => {
 
                                     <div>
                                         <label className="altf-label">
-                                            Average cost per meeting
+                                            Average cost per meeting/month
                                         </label>
                                         <input
                                             type="number"
@@ -182,7 +186,7 @@ const AltfCostCalculator = () => {
 
                                     <div>
                                         <label className="altf-label">
-                                            Café spend per person
+                                            Café spend per person/month
                                         </label>
                                         <input
                                             type="number"
@@ -301,7 +305,7 @@ const AltfCostCalculator = () => {
                                     {/* Alt.f Workspace Section */}
                                     <div className="altf-altf-workspace-section">
                                         <div className="altf-section-header">
-                                            <h3 className="altf-section-title">alt.f Workspace</h3>
+                                            <h3 className="altf-section-title">alt.f coworking</h3>
                                             <span className="altf-badge-dark">
                                                 For {results.teamSize} People
                                             </span>
@@ -361,6 +365,19 @@ const AltfCostCalculator = () => {
                                                         <div className="altf-summary-percentage">That's {savingsPercentage.toFixed(1)}% less than your current spending!</div>
                                                         <div className="altf-summary-per-person">
                                                             You save {formatCurrency(savings / results.teamSize)} per person monthly
+                                                        </div>
+                                                        {/* New Buttons */}
+                                                        <div className="altf-action-buttons">
+                                                            <a
+                                                                href={`https://wa.me/${phoneNumber}?text=${encodeURIComponent(chatSalesMessage)}`}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="altf-action-button altf-chat-sales-button"
+                                                                style={{ backgroundColor: 'rgb(37 37 37)' }} // Apply the theme color directly
+                                                            >
+                                                                <PiWhatsappLogoThin className="whatsapp-icon" /> {/* Use the imported icon */}
+                                                                Chat with Sales Executive
+                                                            </a>
                                                         </div>
                                                     </>
                                                 ) : (
