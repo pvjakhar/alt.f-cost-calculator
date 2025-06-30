@@ -1,0 +1,602 @@
+/* General Body and Container */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.altf-calculator-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #fef2f2, #fff);
+  display: flex;
+  /* Centering the whole page content */
+  justify-content: center;
+  align-items: center; /* Changed from flex-start to center */
+  padding: 2rem 1rem; /* Reduced padding for smaller overall size */
+}
+
+.altf-calculator-wrapper {
+  /* Reduced max-width for overall smaller page size */
+  max-width: 60rem; /* Adjusted from 72rem */
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* New: Main content area for layout */
+.altf-main-content {
+  display: flex; /* Use flexbox for side-by-side layout */
+  flex-direction: column; /* Default to column on small screens */
+  gap: 2.5rem; /* Reduced space between the two columns */
+  align-items: flex-start; /* Align items to the start */
+  width: 100%; /* Ensure it takes full width */
+}
+
+@media (min-width: 1024px) { /* Apply desktop styles from md breakpoint */
+  .altf-main-content {
+    flex-direction: row; /* Row layout on larger screens */
+    justify-content: space-between; /* Distribute space between header and calculator */
+    align-items: flex-start; /* Align items to the top */
+  }
+}
+
+/* Header */
+.altf-header {
+  text-align: center; /* Center align on small screens */
+  margin-bottom: 3rem; /* Reduced margin for smaller screens */
+  flex-shrink: 0; /* Prevent header from shrinking */
+  margin-top: 0; /* Removed fixed margin-top */
+  width: 100%; /* Take full width on mobile */
+  padding-top: 2rem; /* Add some top padding if needed, or remove if not desired */
+}
+
+@media (min-width: 1024px) {
+  .altf-header {
+    text-align: left; /* Align text to the left on larger screens */
+    margin-bottom: 0; /* Remove bottom margin when in row layout */
+    max-width: 45%; /* Give header roughly half the space */
+    margin-top: 110px;
+  }
+}
+
+/* Alt.f Logo Styles */
+.altf-logo {
+  max-width: 150px; /* Adjusted size */
+  height: auto;
+  margin-bottom: 1.5rem; /* Space between logo and title */
+  display: block; /* Ensures it takes its own line */
+  margin-left: auto; /* Centers the logo horizontally */
+  margin-right: auto; /* Centers the logo horizontally */
+  width: 100px;
+  height: 58px;
+
+}
+
+@media (min-width: 1024px) {
+  .altf-logo {
+    margin-left: 0; /* Align logo to the left on larger screens */
+    margin-right: 0; /* Remove right margin on larger screens */
+  }
+}
+
+.altf-title {
+  font-size: 2rem; /* Adjusted from 1rem (for mobile) */
+  line-height: 1.25;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1rem; /* Reduced margin */
+}
+
+@media (min-width: 768px) {
+  .altf-title {
+    font-size: 3rem; /* Adjusted from 3.75rem for larger screens */
+  }
+}
+
+.altf-title-highlight {
+  color: transparent;
+  background: linear-gradient(to right, #e15252, #d36161);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.altf-subtitle {
+  font-size: 1rem; /* Adjusted from 1.25rem */
+  color: #4a5568;
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.5; /* Adjusted line height */
+}
+
+@media (min-width: 1024px) {
+  .altf-subtitle {
+    margin-left: 0; /* Align subtitle to the left on larger screens */
+    margin-right: 0; /* Remove right margin on larger screens */
+    max-width: none; /* Remove max-width restriction for subtitle on desktop */
+  }
+}
+
+/* Main Calculator Card */
+.altf-calculator-main-section {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Take full width on small screens */
+}
+
+@media (min-width: 1024px) {
+  .altf-calculator-main-section {
+    justify-content: flex-end; /* Align calculator to the right */
+    max-width: 55%; /* Give calculator roughly half the space */
+  }
+}
+
+.altf-calculator-card {
+  width: 100%;
+  max-width: 30rem; /* Adjusted from 32rem */
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f7fafc;
+  overflow: hidden;
+}
+
+.altf-calculator-header-band {
+  background: linear-gradient(to right, #e15252, #d36161);
+  padding: 1.25rem; /* Slightly reduced padding */
+}
+
+.altf-calculator-header-title {
+  font-size: 1.35rem; /* Slightly reduced font size */
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+}
+
+.altf-calculator-body {
+  padding: 1.75rem; /* Slightly reduced padding */
+}
+
+/* Location Selector */
+.altf-location-selector {
+  margin-bottom: 1.75rem; /* Slightly reduced margin */
+}
+
+.altf-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem; /* Slightly reduced margin */
+}
+
+.altf-location-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.6rem; /* Slightly reduced gap */
+}
+
+.altf-location-button {
+  padding: 0.85rem; /* Slightly reduced padding */
+  border-radius: 0.75rem;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  background-color: #f9fafb;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.altf-location-button:hover {
+  border-color: #fca5a5;
+  background-color: #fef2f2;
+}
+
+.altf-location-button-active {
+  border-color: #e15252;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+}
+
+.altf-location-name {
+  font-weight: 600;
+  font-size: 0.8rem; /* Slightly reduced font size */
+  text-transform: capitalize;
+}
+
+.altf-location-rate {
+  font-size: 0.7rem; /* Slightly reduced font size */
+  margin-top: 0.2rem; /* Slightly reduced margin */
+  opacity: 0.8;
+}
+
+/* Form Inputs */
+.altf-form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Slightly reduced gap */
+}
+
+.altf-input {
+  width: 91%;
+  padding: 0.7rem 0.9rem; /* Slightly reduced padding */
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease-in-out;
+  background-color: #f9fafb;
+}
+
+.altf-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #e15252;
+  border-color: #e15252;
+  background-color: #ffffff;
+}
+
+/* Calculate Button */
+.altf-calculate-button {
+  width: 100%;
+  margin-top: 1.75rem; /* Slightly reduced margin */
+  padding: 0.9rem 1.25rem; /* Slightly reduced padding */
+  background: linear-gradient(to right, #e15252, #d36161);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem; /* Slightly reduced font size */
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.altf-calculate-button:hover {
+  background: linear-gradient(to right, #cc4949, #b85454);
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Results Modal */
+.altf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.altf-modal-content {
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 38rem; /* Adjusted from 42rem for a smaller modal */
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.altf-modal-close-button {
+  position: absolute;
+  top: 0.75rem; /* Adjusted position */
+  right: 0.75rem; /* Adjusted position */
+  width: 2rem; /* Slightly smaller */
+  height: 2rem; /* Slightly smaller */
+  background-color: #f3f4f6;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  transition: all 0.2s ease-in-out;
+  z-index: 10;
+  cursor: pointer;
+  border: none;
+}
+
+.altf-modal-close-button:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+}
+
+.altf-modal-header {
+  background: linear-gradient(to right, #e15252, #d36161);
+  padding: 1.5rem; /* Slightly reduced padding */
+  color: #ffffff;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+.altf-modal-title {
+  font-size: 1.5rem; /* Adjusted from 1.875rem */
+  font-weight: 700;
+  text-align: center;
+}
+
+.altf-modal-body {
+  padding: 1.5rem; /* Slightly reduced padding */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* Slightly reduced gap */
+}
+
+/* Section Styling */
+.altf-current-spend-section {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 1rem;
+  padding: 1.25rem; /* Slightly reduced padding */
+}
+
+.altf-altf-workspace-section {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1.25rem; /* Slightly reduced padding */
+}
+
+.altf-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem; /* Slightly reduced margin */
+}
+
+.altf-section-title {
+  font-size: 1.05rem; /* Slightly reduced font size */
+  font-weight: 700;
+}
+
+.altf-current-spend-section .altf-section-title {
+  color: #991b1b;
+}
+.altf-altf-workspace-section .altf-section-title {
+  color: #1f2937;
+}
+
+.altf-badge {
+  background-color: #e15252;
+  color: #ffffff;
+  padding: 0.3rem 0.6rem; /* Slightly reduced padding */
+  border-radius: 9999px;
+  font-size: 0.7rem; /* Slightly reduced font size */
+  font-weight: 600;
+}
+
+.altf-badge-dark {
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 0.3rem 0.6rem; /* Slightly reduced padding */
+  border-radius: 9999px;
+  font-size: 0.7rem; /* Slightly reduced font size */
+  font-weight: 600;
+}
+
+.altf-section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem; /* Slightly reduced gap */
+}
+
+.altf-cost-item-group {
+  margin-top: 1.25rem; /* Slightly reduced margin */
+  padding-top: 0.8rem; /* Slightly reduced padding */
+  border-top: 1px dashed #e5e7eb;
+}
+
+.altf-cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem; /* Slightly reduced font size */
+  color: #374151;
+  padding: 0.2rem 0; /* Slightly reduced padding */
+}
+
+.altf-cost-value {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.altf-total-cost-line {
+  margin-top: 0.8rem; /* Slightly reduced margin */
+  padding-top: 0.6rem; /* Slightly reduced padding */
+  border-top: 2px solid #e15252;
+}
+
+.altf-total-cost {
+  font-size: 1.1rem; /* Slightly reduced font size */
+  font-weight: 700;
+  color: #1a202c;
+}
+
+/* Per Person Breakdown */
+.altf-per-person-breakdown {
+  margin-bottom: 0.8rem; /* Slightly reduced margin */
+}
+
+.altf-per-person-title {
+  font-size: 0.9rem; /* Slightly reduced font size */
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 0.6rem; /* Slightly reduced margin */
+  text-decoration: underline;
+}
+
+.altf-cost-item-small {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem; /* Slightly reduced font size */
+  color: #555;
+  padding: 0.1rem 0; /* Slightly reduced padding */
+}
+
+.altf-total-cost-line-small {
+  margin-top: 0.6rem; /* Slightly reduced margin */
+  padding-top: 0.4rem; /* Slightly reduced padding */
+  border-top: 1px dashed #d1d5db;
+}
+
+.altf-per-person-total {
+  font-size: 0.95rem; /* Slightly reduced font size */
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* Cost Comparison */
+.altf-cost-comparison-section {
+  text-align: center;
+  margin-top: 1.75rem; /* Slightly reduced margin */
+}
+
+.altf-section-title-center {
+  text-align: center;
+  color: #1f2937;
+  margin-bottom: 1.25rem; /* Slightly reduced margin */
+}
+
+.altf-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem; /* Slightly reduced gap */
+}
+
+@media (min-width: 768px) {
+  .altf-comparison-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.altf-comparison-card {
+  padding: 1.25rem; /* Slightly reduced padding */
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem; /* Slightly reduced gap */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.altf-current-cost-card {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.altf-altf-cost-card {
+  background-color: #e0f2f7;
+  border: 1px solid #a7d9ed;
+}
+
+.altf-comparison-label {
+  font-size: 0.85rem; /* Slightly reduced font size */
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.altf-comparison-value-red {
+  font-size: 2rem; /* Adjusted from 2.25rem */
+  font-weight: 700;
+  color: #b91c1c;
+}
+
+.altf-comparison-value-blue {
+  font-size: 2rem; /* Adjusted from 2.25rem */
+  font-weight: 700;
+  color: #0c4a6e;
+}
+
+.altf-comparison-sublabel {
+  font-size: 0.75rem; /* Slightly reduced font size */
+  color: #6b7280;
+}
+
+/* Results Summary */
+.altf-results-summary {
+  padding: 1.75rem; /* Slightly reduced padding */
+  border-radius: 1rem;
+  text-align: center;
+  margin-top: 1.75rem; /* Slightly reduced margin */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.altf-results-summary-positive {
+  background-color: #d1fae5;
+  border: 1px solid #34d399;
+  color: #065f46;
+}
+
+.altf-results-summary-negative {
+  background-color: #fee2e2;
+  border: 1px solid #f87171;
+  color: #991b1b;
+}
+
+.altf-summary-headline {
+  font-size: 1.5rem; /* Adjusted from 1.75rem */
+  font-weight: 800;
+  margin-bottom: 0.6rem; /* Slightly reduced margin */
+}
+
+.altf-summary-amount {
+  font-size: 2.5rem; /* Adjusted from 3rem */
+  font-weight: 900;
+  margin-bottom: 0.4rem; /* Slightly reduced margin */
+  line-height: 1;
+}
+
+.altf-summary-text {
+  font-size: 1rem; /* Adjusted from 1.125rem */
+  margin-bottom: 0.8rem; /* Slightly reduced margin */
+}
+
+.altf-summary-percentage {
+  font-size: 1.1rem; /* Adjusted from 1.25rem */
+  font-weight: 600;
+  margin-bottom: 1.25rem; /* Slightly reduced margin */
+  color: #1a202c;
+}
+
+.altf-results-summary-positive .altf-summary-percentage {
+    color: #065f46;
+}
+
+.altf-results-summary-negative .altf-summary-percentage {
+    color: #991b1b;
+}
+
+.altf-summary-per-person {
+  font-size: 0.85rem; /* Slightly reduced font size */
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
