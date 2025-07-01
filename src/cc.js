@@ -17,7 +17,9 @@ const AltfCostCalculator = () => {
     const locationRates = {
         noida: 6500,
         gurgaon: 10000,
-        delhi: 9000
+        delhi: 9000,
+        // Added Hyderabad
+        hyderabad: 8500
     };
 
     const handleInputChange = (field, value) => {
